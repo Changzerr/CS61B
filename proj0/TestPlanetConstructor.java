@@ -1,13 +1,13 @@
 /**
- *  Tests the Body constructor.
+ *  Tests the Planet constructor.
  */
-public class TestBodyConstructor {
+public class TestPlanetConstructor {
 
     /**
-     *  Tests the Body constructor to make sure it's working correctly.
+     *  Tests the Planet constructor to make sure it's working correctly.
      */
     public static void main(String[] args) {
-        checkBodyConstructor();
+        checkPlanetConstructor();
     }
 
     /**
@@ -47,11 +47,11 @@ public class TestBodyConstructor {
     }
 
     /**
-     *  Checks Body constructors to make sure they are setting instance
+     *  Checks Planet constructors to make sure they are setting instance
      *  variables correctly.
      */
-    private static void checkBodyConstructor() {
-        System.out.println("Checking first Body constructor...");
+    private static void checkPlanetConstructor() {
+        System.out.println("Checking first Planet constructor...");
 
         double xxPos = 1.0,
                yyPos = 2.0,
@@ -61,7 +61,7 @@ public class TestBodyConstructor {
 
         String imgFileName = "jupiter.gif";
 
-        Body b = new Body(xxPos, yyPos, xxVel, yyVel, mass, imgFileName);
+        Planet b = new Planet(xxPos, yyPos, xxVel, yyVel, mass, imgFileName);
 
         checkEquals(xxPos, b.xxPos, "xxPos");
         checkEquals(yyPos, b.yyPos, "yyPos");
@@ -70,9 +70,9 @@ public class TestBodyConstructor {
         checkEquals(mass, b.mass, "mass");
         checkStringEquals(imgFileName, b.imgFileName, "path to image");
 
-        System.out.println("Checking second Body constructor...");
+        System.out.println("Checking second Planet constructor...");
 
-        Body bCopy = new Body(b);
+        Planet bCopy = new Planet(b);
         checkEquals(b.xxPos, bCopy.xxPos, "xxPos");
         checkEquals(b.yyPos, bCopy.yyPos, "yyPos");
         checkEquals(b.xxVel, bCopy.xxVel, "xxVel");
