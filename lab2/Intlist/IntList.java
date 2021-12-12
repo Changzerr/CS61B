@@ -96,13 +96,13 @@ public class IntList {
      */
     public static IntList catenate(IntList A, IntList B) {
         //TODO:  fill in method
-        IntList C = new IntList(A.first,null);
+
+        IntList C = new IntList();
+
         IntList D = C;
         IntList E = A;
         IntList G = B;
-        if(E.rest != null) {
-            E = E.rest;
-        }
+
         while(E != null){
             D.rest = new IntList(E.first,null);
             D = D.rest;
@@ -113,7 +113,7 @@ public class IntList {
             D = D.rest;
             G = G.rest;
         }
-        return C;
+        return C.rest;
     }
 
 
