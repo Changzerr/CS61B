@@ -1,5 +1,5 @@
 import java.math.*;
-class Planet{
+public class Planet{
 	private static final Double G = 6.67e-11;
 	public double xxPos;
 	public double yyPos;
