@@ -53,7 +53,9 @@ public class IntList {
         }
         IntList res = new IntList(L.first * L.first, null);
         IntList ptr = res;
-        L = L.rest;
+        if(L!=null){
+            L = L.rest;
+        }
         while (L != null) {
             ptr.rest = new IntList(L.first * L.first, null);
             L = L.rest;
