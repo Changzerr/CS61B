@@ -46,8 +46,8 @@ public class NBody{
 		double time = 0;
 		double[] xForces = new double[planets.length];
 		double[] yForces = new double[planets.length];
-		while(time < T){
-			
+		
+		for(time = 0; time < T; time = time + dt){
 			for(int i = 0; i < planets.length; i++){
 				xForces[i] = planets[i].calcNetForceExertedByX(planets);
 				yForces[i] = planets[i].calcNetForceExertedByY(planets);
@@ -65,7 +65,6 @@ public class NBody{
 			}
 			StdDraw.pause(10);
 			StdDraw.show();
-			time = time + dt;
 		}
 		StdOut.printf("%d\n", planets.length);
 		StdOut.printf("%.2e\n", radius);
