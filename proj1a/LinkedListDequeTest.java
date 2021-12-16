@@ -1,4 +1,7 @@
-/** Performs some basic linked list tests. */
+import org.junit.Test;
+
+/** Performs some basic linked list tests.
+ * @author 张志*/
 public class LinkedListDequeTest {
 
 	/* Utility method for printing out empty checks. */
@@ -53,7 +56,6 @@ public class LinkedListDequeTest {
 
 		lld1.addLast("back");
 		passed = checkSize(3, lld1.size()) && passed;
-
 		System.out.println("Printing out deque: ");
 		lld1.printDeque();
 
