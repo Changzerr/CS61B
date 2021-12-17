@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-
 /**
  * @author lingqu
  * @date 2021/12/13
@@ -7,7 +5,7 @@ import java.util.LinkedList;
  */
 public class LinkedListDeque<T> {
 
-    private class Node{
+    private class Node {
         public Node next;
         public Node pre;
         public T item;
@@ -22,21 +20,21 @@ public class LinkedListDeque<T> {
     private Node last;
     private int size;
 
-    public LinkedListDeque(){
-        T a = null;
-        head = new Node(a, null,null);
+    public LinkedListDeque() {
+
+        head = new Node(null, null,null);
         head.next = head;
         head.pre = head;
         size = 0;
     }
 
-    public LinkedListDeque(T x){
-        T a = null;
-        head = new Node(a,null,null);
-        head.next = new Node(x,head,null);
+    LinkedListDeque(T x) {
+
+        head = new Node(null,null,null);
+        head.next = new Node(x,head,head);
         size = 0;
     }
-    public Boolean isEmpty(){
+    public Boolean isEmpty() {
         return size == 0;
     }
     public int size() {
@@ -49,7 +47,7 @@ public class LinkedListDeque<T> {
             head.next = temp;
             last = temp;
             size++;
-        }else{
+        } else{
             Node temp = new Node(pre,head,head.next);
             head.next.next.pre = temp;
             size++;
@@ -98,7 +96,7 @@ public class LinkedListDeque<T> {
             Node temp = last;
             T res = temp.item;
             last.pre.next = head;
-            head.next = last.pre;
+            head.pre = last.pre;
             temp = null;
             size--;
             return res;
@@ -107,30 +105,28 @@ public class LinkedListDeque<T> {
     }
 
     public T get(int index) {
-        if(index < 1 || index > size){
+        if(index < 0 || index >= size){
             return null;
         }
         Node temp = head.next;
-        for(int i = 1; i < index; i++){
+        for(int i = 0; i < index; i++){
             temp = temp.next;
         }
         return temp.item;
     }
 
-    public LinkedListDeque<T> subCopy(LinkedListDeque<T> x) {
-        LinkedListDeque<T> answer = new LinkedListDeque<T>();
-        answer.head = x.head.next;
-        answer.size = x.size-1;
-        return answer;
+    public T getRecursive(int index){
+        if (index > size - 1) {
+            return null;
+        }
+        return getR(head.next, index);
     }
 
-    public T getRecursive(int index){
-        if(index > size){
-            return null;
-        }else if(index == 1){
-                return head.next.item;
-            }else {
-                return subCopy(this).getRecursive(index-1);
+    private T getR(Node next, int index) {
+        if(index == 0){
+            return next.item;
+        }else{
+            return getR(next.next,index-1);
         }
     }
 }

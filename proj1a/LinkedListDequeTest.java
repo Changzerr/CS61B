@@ -1,5 +1,3 @@
-import org.junit.Test;
-
 /** Performs some basic linked list tests.
  * @author 张志*/
 public class LinkedListDequeTest {
@@ -57,6 +55,7 @@ public class LinkedListDequeTest {
 		lld1.addLast("back");
 		passed = checkSize(3, lld1.size()) && passed;
 		System.out.println("Printing out deque: ");
+
 		lld1.printDeque();
 
 		printTestStatus(passed);
@@ -77,7 +76,6 @@ public class LinkedListDequeTest {
 		lld1.addFirst(10);
 		// should not be empty
 		passed = checkEmpty(false, lld1.isEmpty()) && passed;
-
 		lld1.removeFirst();
 		// should be empty
 		passed = checkEmpty(true, lld1.isEmpty()) && passed;

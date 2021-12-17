@@ -65,7 +65,7 @@ public class NBody{
 				planets[i].draw();
 			}
                         StdDraw.show();
-			StdDraw.pause(10);
+			StdDraw.pause(100);
 			
 		}
 		StdOut.printf("%d\n", planets.length);
