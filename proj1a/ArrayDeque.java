@@ -58,10 +58,10 @@ public class ArrayDeque<T> {
     }
 
     /** Returns the item from the back of the list. */
-    public T getLast() {
+    private T getLast() {
         return items[subOne(nextLast)];
     }
-    public T getFirst() {
+    private T getFirst() {
         return items[addOne(nextFirst)];
     }
     /** Gets the ith item in the list (0 is the front). */
