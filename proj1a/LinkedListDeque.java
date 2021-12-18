@@ -34,7 +34,7 @@ public class LinkedListDeque<T> {
         head.next = new Node(x,head,head);
         size = 0;
     }
-    public Boolean isEmpty() {
+    public boolean isEmpty() {
         return size == 0;
     }
     public int size() {

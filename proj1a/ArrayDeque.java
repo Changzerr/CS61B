@@ -3,15 +3,15 @@
  * @date 2021/12/17
  * @apiNote
  */
-public class ArrayDeque<Item> {
-    private Item[] items;
+public class ArrayDeque<T> {
+    private T[] items;
     private int nextFirst;
     private int nextLast;
     private int size;
     /** Creates an empty list. */
     public ArrayDeque() {
 
-        items = (Item[]) new Object[8];
+        items = (T[]) new Object[8];
         nextFirst = 0;
         nextLast = 1;
         size = 0;
@@ -27,7 +27,7 @@ public class ArrayDeque<Item> {
 
     /** Rerears the underlying array to the target capacity. */
     private void resize(int capacity) {
-        Item[] newItems = (Item[]) new Object[capacity];
+        T[] newItems = (T[]) new Object[capacity];
         int oldFirst = addOne(nextFirst);
         for(int i = 0; i < size; i++){
             newItems[i] = items[oldFirst];
@@ -39,7 +39,7 @@ public class ArrayDeque<Item> {
     }
 
     /** Inserts X into the back of the list. */
-    public void addLast(Item x) {
+    public void addLast(T x) {
         if(size == items.length){
             resize(size*2);
         }
@@ -48,7 +48,7 @@ public class ArrayDeque<Item> {
         size++;
     }
 
-    public void addFirst(Item x) {
+    public void addFirst(T x) {
         if(size == items.length){
             resize(size*2);
         }
@@ -58,14 +58,14 @@ public class ArrayDeque<Item> {
     }
 
     /** Returns the item from the back of the list. */
-    public Item getLast() {
+    public T getLast() {
         return items[subOne(nextLast)];
     }
-    public Item getFirst() {
+    public T getFirst() {
         return items[addOne(nextFirst)];
     }
     /** Gets the ith item in the list (0 is the front). */
-    public Item get(int i) {
+    public T get(int i) {
         if (i >= size) {
             return null;
         }
@@ -83,11 +83,11 @@ public class ArrayDeque<Item> {
 
     /** Deletes item from back of the list and
      * returns deleted item. */
-    public Item removeLast() {
+    public T removeLast() {
         if(size == 0){
             return null;
         }
-        Item x = items[subOne(nextLast)];
+        T x = items[subOne(nextLast)];
         items[subOne(nextLast)] = null;
         nextLast = subOne(nextLast);
         size--;
@@ -98,11 +98,11 @@ public class ArrayDeque<Item> {
         return x;
     }
 
-    public Item removeFirst() {
+    public T removeFirst() {
         if(size == 0){
             return null;
         }
-        Item x = items[addOne(nextFirst)];
+        T x = items[addOne(nextFirst)];
         items[addOne(nextFirst)] = null;
         nextFirst = addOne(nextFirst);
         size--;
