@@ -47,8 +47,9 @@ public class NBody{
 		
 		
 		for(time = 0; time < T; time = time + dt){
-                    double[] xForces = new double[planets.length];
-		    double[] yForces = new double[planets.length];
+            double[] xForces = new double[planets.length];
+
+			double[] yForces = new double[planets.length];
 			for(int i = 0; i < planets.length; i++){
 				xForces[i] = planets[i].calcNetForceExertedByX(planets);
 				yForces[i] = planets[i].calcNetForceExertedByY(planets);
@@ -56,7 +57,7 @@ public class NBody{
 			}
 
 			for(int i =0; i < planets.length; i++){
-				planets[i].update(time,xForces[i],yForces[i]);
+				planets[i].update(dt,xForces[i],yForces[i]);
 
 			}
 			
@@ -64,8 +65,8 @@ public class NBody{
 			for(int i = 0; i<planets.length; i++){
 				planets[i].draw();
 			}
-                        StdDraw.show();
-			StdDraw.pause(100);
+			StdDraw.pause(10);
+			StdDraw.show();
 			
 		}
 		StdOut.printf("%d\n", planets.length);
