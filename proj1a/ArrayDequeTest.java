@@ -19,6 +19,7 @@ public class ArrayDequeTest {
         ArrayDeque<Integer> L = new ArrayDeque<>();
         L.addLast(99);
         L.addLast(9);
+        System.out.println(L.get(0));
         assertEquals(2, L.size());
     }
 

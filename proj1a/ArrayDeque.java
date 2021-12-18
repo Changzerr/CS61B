@@ -28,10 +28,10 @@ public class ArrayDeque<Item> {
     /** Rerears the underlying array to the target capacity. */
     private void resize(int capacity) {
         Item[] newItems = (Item[]) new Object[capacity];
-        int oldFirst = nextFirst;
+        int oldFirst = addOne(nextFirst);
         for(int i = 0; i < size; i++){
-            oldFirst = addOne(oldFirst);
             newItems[i] = items[oldFirst];
+            oldFirst = addOne(oldFirst);
         }
         nextLast = size;
         nextFirst = items.length - 1;
@@ -66,12 +66,11 @@ public class ArrayDeque<Item> {
     }
     /** Gets the ith item in the list (0 is the front). */
     public Item get(int i) {
-        if(i >= size){
+        if (i >= size) {
             return null;
-        }else{
-            int start = addOne(nextFirst);
-            return items[(start + i) % items.length];
         }
+        int start = addOne(nextFirst);
+        return items[(start + i) % items.length];
     }
 
     /** Returns the number of items in the list. */
@@ -88,14 +87,14 @@ public class ArrayDeque<Item> {
         if(size == 0){
             return null;
         }
-        Item x = getLast();
+        Item x = items[subOne(nextLast)];
         items[subOne(nextLast)] = null;
         nextLast = subOne(nextLast);
+        size--;
         //保证空间利用率在25%
         if (items.length >= 16 && size < (items.length / 4)) {
             resize(items.length / 2);
         }
-        size--;
         return x;
     }
 
@@ -103,14 +102,14 @@ public class ArrayDeque<Item> {
         if(size == 0){
             return null;
         }
-        Item x = getFirst();
+        Item x = items[addOne(nextFirst)];
         items[addOne(nextFirst)] = null;
         nextFirst = addOne(nextFirst);
+        size--;
         //保证空间利用率在25%
         if (items.length >= 16 && size < (items.length / 4)) {
             resize(items.length / 2);
         }
-        size--;
         return x;
     }
 
