@@ -34,8 +34,8 @@ public class ArrayDeque<T> {
             oldFirst = addOne(oldFirst);
         }
         nextLast = size;
-        nextFirst = items.length - 1;
         items = newItems;
+        nextFirst = items.length - 1;
     }
 
     /** Inserts X into the back of the list. */

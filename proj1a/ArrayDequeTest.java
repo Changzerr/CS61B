@@ -28,9 +28,7 @@ public class ArrayDequeTest {
     public void testAddAndGetLast() {
         ArrayDeque<Integer> L = new ArrayDeque<>();
         L.addLast(99);
-        assertEquals(99, (int)L.getLast());
         L.addLast(36);
-        assertEquals(36, (int)L.getLast());
     }
 
 
@@ -53,9 +51,9 @@ public class ArrayDequeTest {
         L.addLast(36);
         assertEquals(99, (int)L.get(0));
         L.removeLast();
-        assertEquals(99, (int)L.getLast());
+
         L.addLast(100);
-        assertEquals(100,(int) L.getLast());
+
         assertEquals(2, L.size());
     }
 
@@ -73,6 +71,29 @@ public class ArrayDequeTest {
         }
     }
 
+    @Test
+    public void test(){
+        ArrayDeque<Integer> L = new ArrayDeque<>();
+        L.addLast(0);
+        L.addLast(1);
+        L.get(0);
+        L.removeLast() ;
+        L.addFirst(4);
+        L.get(1);
+        L.addLast(6);
+        L.get(0);
+        L.addFirst(8);
+        L.addLast(9);
+        L.addFirst(10);
+        L.get(3) ;
+        L.addLast(12);
+        L.removeFirst();
+        L.addLast(14);
+        L.addLast(15);
+        L.addFirst(16);
+        L.addLast(17);
+        L.get(8)   ;
+    }
     public static void main(String[] args) {
         jh61b.junit.TestRunner.runTests("all", ArrayDequeTest.class);
     }
