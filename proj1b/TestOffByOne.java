@@ -11,7 +11,13 @@ public class TestOffByOne {
     // Your tests go here.
     @Test
     public void testEqualChars(){
-        assertTrue(offByOne.equalChars('t', 't'));
-        assertFalse(offByOne.equalChars('t', 'q'));
+        OffByOne obo = new OffByOne();
+        //true
+        assertTrue(obo.equalChars('a', 'b'));
+        assertTrue(obo.equalChars('r', 'q'));
+        //false
+        assertFalse(obo.equalChars('a', 'e'));
+        assertFalse(obo.equalChars('a', 'a'));
+        assertFalse(obo.equalChars('z', 'a'));
     }
 }
