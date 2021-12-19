@@ -12,6 +12,9 @@ public class Palindrome {
         return deque;
     }
 
+    /**
+     *迭代方法
+     */
     //public boolean isPalindrome(String word){
     //    Deque<Character> deque = wordToDeque(word);
     //    while (deque.size()>1){
@@ -25,20 +28,31 @@ public class Palindrome {
     //}
 
     private String listToString(Deque<Character> deque) {
-        StringBuilder sb = new StringBuilder();
-        while (!deque.isEmpty()){
-            sb.append(deque.removeFirst());
+        //StringBuilder sb = new StringBuilder();
+        //while (!deque.isEmpty()){
+        //    sb.append(deque.removeFirst());
+        //}
+        //return sb.toString();
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < deque.size(); i++){
+            ans.append(deque.get(i));
         }
-        return sb.toString();
+        return ans.toString();
     }
-    //改为递归recursion
+
+
+    /**
+     *
+     * @return
+     * 改为递归recursion
+     */
     public boolean isPalindrome(String word){
         if(word.length() <= 1){
             return true;
         }else {
-            Deque deque = wordToDeque(word);
-            char first = (char) deque.removeFirst();
-            char last = (char) deque.removeLast();
+            Deque<Character> deque = wordToDeque(word);
+            char first = deque.removeFirst();
+            char last = deque.removeLast();
             return (first == last) && isPalindrome(listToString(deque));
         }
     }
@@ -47,10 +61,10 @@ public class Palindrome {
         if(word.length() <= 1){
             return true;
         }else {
-            Deque deque = wordToDeque(word);
-            char first = (char) deque.removeFirst();
-            char last = (char) deque.removeLast();
-            return cc.equalChars(first,last) && new Palindrome().isPalindrome(listToString(deque),cc);
+            Deque<Character> deque = wordToDeque(word);
+            char first = deque.removeFirst();
+            char last = deque.removeLast();
+            return  (cc.equalChars(first, last)) && isPalindrome(listToString(deque),cc);
         }
     }
 
