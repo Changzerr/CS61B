@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 /** Performs some basic linked list tests.
  * @author 张志*/
 public class LinkedListDequeTest {
@@ -34,7 +36,8 @@ public class LinkedListDequeTest {
 	  * finally printing the results.
 	  *
 	  * && is the "and" operation. */
-	public static void addIsEmptySizeTest() {
+	@Test
+	public void addIsEmptySizeTest() {
 		System.out.println("Running add/isEmpty/Size test.");
 		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
 
@@ -63,7 +66,8 @@ public class LinkedListDequeTest {
 	}
 
 	/** Adds an item, then removes an item, and ensures that dll is empty afterwards. */
-	public static void addRemoveTest() {
+	@Test
+	public void addRemoveTest() {
 
 		System.out.println("Running add/remove test.");
 
@@ -74,6 +78,8 @@ public class LinkedListDequeTest {
 		boolean passed = checkEmpty(true, lld1.isEmpty());
 
 		lld1.addFirst(10);
+		lld1.addFirst(11);
+		lld1.addFirst(12);
 		// should not be empty
 		passed = checkEmpty(false, lld1.isEmpty()) && passed;
 		lld1.removeFirst();
@@ -86,7 +92,7 @@ public class LinkedListDequeTest {
 
 	public static void main(String[] args) {
 		System.out.println("Running tests.\n");
-		addIsEmptySizeTest();
-		addRemoveTest();
+
+
 	}
 }

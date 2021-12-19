@@ -49,7 +49,8 @@ public class LinkedListDeque<T> {
             size++;
         } else{
             Node temp = new Node(pre,head,head.next);
-            head.next.next.pre = temp;
+            head.next.pre = temp;
+            head.next = temp;
             size++;
         }
     }
@@ -61,7 +62,8 @@ public class LinkedListDeque<T> {
             last = temp;
             size++;
         }else{
-            Node temp = new Node(middle,head,head.next);
+            Node temp = new Node(middle,last,last.next);
+            head.pre = temp;
             last.next = temp;
             last = temp;
             size++;
