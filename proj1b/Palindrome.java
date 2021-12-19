@@ -57,15 +57,19 @@ public class Palindrome {
         }
     }
 
-    public boolean isPalindrome(String word, CharacterComparator cc){
-        if(word.length() <= 1){
+
+    public boolean isPalindrome(String word, CharacterComparator cc) {
+        return helper(wordToDeque(word), cc);
+    }
+
+    private boolean helper(Deque<Character> rest, CharacterComparator cc) {
+        if (rest.size() <= 1) {
             return true;
-        }else {
-            Deque<Character> deque = wordToDeque(word);
-            char first = deque.removeFirst();
-            char last = deque.removeLast();
-            return  (cc.equalChars(first, last)) && isPalindrome(listToString(deque),cc);
         }
+        if (!cc.equalChars(rest.removeFirst(), rest.removeLast())) {
+            return false;
+        }
+        return helper(rest, cc);
     }
 
 }
