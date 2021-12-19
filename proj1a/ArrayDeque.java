@@ -17,8 +17,8 @@ public class ArrayDeque<T> {
         size = 0;
     }
 
-    private int addOne(int i){
-        return (i+1)%items.length;
+    private int addOne(int i) {
+        return (i + 1)%items.length;
     }
 
     private int subOne(int i){
