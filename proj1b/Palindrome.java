@@ -50,7 +50,7 @@ public class Palindrome {
             Deque deque = wordToDeque(word);
             char first = (char) deque.removeFirst();
             char last = (char) deque.removeLast();
-            return cc.equalChars(first,last) && isPalindrome(listToString(deque),cc);
+            return cc.equalChars(first,last) && new Palindrome().isPalindrome(listToString(deque),cc);
         }
     }
 
