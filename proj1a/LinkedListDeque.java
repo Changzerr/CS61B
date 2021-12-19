@@ -100,6 +100,7 @@ public class LinkedListDeque<T> {
             last.pre.next = head;
             head.pre = last.pre;
             temp = null;
+            last = head.pre;
             size--;
             return res;
         }
